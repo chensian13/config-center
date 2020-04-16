@@ -1,0 +1,42 @@
+
+server:
+  port: 9000
+
+spring:
+  application:
+    name: ui
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 50MB
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekava:2001/eureka #,http://eurekavb:2002/eureka
+
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 1000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream  # "*"
+
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000

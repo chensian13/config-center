@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: menu
+  datasource:
+    #引入druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.102:3306/sys_log?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: 123456
+
+#mybatis-plush配置
+mybatis-plus:
+  type-aliases-package: csa.stu.sys.common.pojo
+  mapper-locations: classpath:/mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+#分页合理化 小于第一页返回第一页，大于最后一页返回最后一页
+pagehelper:
+  reasonable: true
+#引入日志信息
+logging:
+  level:
+    com.jt.mapper: debug
+
+csa:
+  password: 123456
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekava:2001/eureka #,http://eurekavb:2002/eureka
