@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: menu
+  cloud:
+    config:
+      override-none: true
   datasource:
     #引入druid数据源
     type: com.alibaba.druid.pool.DruidDataSource

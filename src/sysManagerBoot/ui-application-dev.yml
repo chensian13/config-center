@@ -5,6 +5,9 @@ server:
 spring:
   application:
     name: ui
+  cloud:
+    config:
+      override-none: true
   servlet:
     multipart:
       max-request-size: 100MB
